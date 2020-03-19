@@ -26,8 +26,8 @@ with open("README.md") as readme_file:
     _long_description = readme_file.read()
 
 
-requirements = [line.strip() for line in open('requirements.txt')]
-test_requirements = [line.strip() for line in open('requirements_dev.txt')]
+requirements = ['Click>=6.0', 'birdhouse-birdy>=0.6.9']
+test_requirements = ['pytest', ]
 
 setup_requirements = ['pytest-runner', ]
 
