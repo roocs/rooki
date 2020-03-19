@@ -9,14 +9,14 @@ __author__ = "Carsten Ehbrecht"
 __contact__ = "ehbrecht@dkrz.de"
 __copyright__ = "Copyright 2018 United Kingdom Research and Innovation"
 __license__ = "BSD - see LICENSE file in top-level package directory"
-
+__version__ = "0.1.0"
 
 from setuptools import setup, find_packages
 
 # One strategy for storing the overall version is to put it in the top-level
 # package's __init__ but Nb. __init__.py files are not needed to declare
 # packages in Python 3
-from rooki import __version__ as _package_version
+# from rooki import __version__ as _package_version
 
 # Populate long description setting with content of README
 #
@@ -26,11 +26,10 @@ with open("README.md") as readme_file:
     _long_description = readme_file.read()
 
 
-requirements = ['Click>=6.0', ]
+requirements = ['Click>=6.0', 'birdhouse-birdy>=0.6.9']
+test_requirements = ['pytest', ]
 
 setup_requirements = ['pytest-runner', ]
-
-test_requirements = ['pytest', ]
 
 
 setup(
@@ -69,7 +68,7 @@ setup(
 
     # This qualifier can be used to selectively exclude Python versions -
     # in this case early Python 2 and 3 releases
-    python_requires='>=3.6.0',
+    python_requires='>=3.7.0',
     entry_points={
         'console_scripts': [
             'rooki=rooki.cli:main',
@@ -87,6 +86,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/roocs/rooki',
-    version=_package_version,
+    version=__version__,
     zip_safe=False,
 )
