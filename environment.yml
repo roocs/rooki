@@ -1,0 +1,12 @@
+# conda env create -f environment.yml
+name: rooki
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pip
+  #- openssl
+  - birdy
+  # tests
+  #- pytest
+  #- flake8

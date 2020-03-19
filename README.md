@@ -16,6 +16,10 @@ A client for roocs climate data operations service.
 * Free software: BSD - see LICENSE file in top-level package directory
 * Documentation: https://rooki.readthedocs.io.
 
+## NBViewer
+
+https://nbviewer.jupyter.org/github/roocs/rooki/tree/master/notebooks/
+
 
 ## Features
 
