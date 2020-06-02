@@ -9,6 +9,5 @@ __license__ = "BSD - see LICENSE file in top-level package directory"
 __version__ = "0.1.0"
 
 from birdy import WPSClient
-url = 'https://bovec.dkrz.de/ows/proxy/roocs'
-# url = 'http://localhost:5000/wps'
-rooki = WPSClient(url, verify=False)
+from rooki import config
+rooki = WPSClient(config.get_config_value('service', 'url'), verify=False)
