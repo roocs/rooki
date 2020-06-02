@@ -31,7 +31,7 @@ class Operator:
         return json.dumps(tree)
 
     def orchestrate(self):
-        return rooki.orchestrate(workflow=self._serialise(), mode='tree')
+        return rooki.orchestrate(workflow=self._serialise())
 
     @property
     def method_key(self):
@@ -57,6 +57,14 @@ class Input:
     def __init__(self, variable, dataset):
         self.variable = variable
         self.dataset = dataset
+
+    def _serialise(self, doc='tree workflow'):
+        tree = self._tree()
+        tree['doc'] = doc
+        return json.dumps(tree)
+
+    def orchestrate(self):
+        return rooki.orchestrate(workflow=self._serialise())
 
     def _tree(self, tree=defaultdict(dict)):
         tree['inputs'][self.variable] = self.dataset
