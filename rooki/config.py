@@ -62,13 +62,16 @@ def load_configuration(cfgfiles=None):
         LOGGER.info('Configuration file(s) {} loaded'.format(loaded_files))
     else:
         LOGGER.info('No configuration files loaded. Using default values')
+    # dirty hack to set rook url on binder
+    if 'ROOK_URL' in os.environ:
+        CONFIG.set('service', 'url', os.environ['ROOK_URL'])
 
 
 def _get_default_config_files_location():
     """Get the locations of the standard configuration files. These are
         1. `$ROOKI_HOME/default.cfg`
-        2. `/etc/pywps.cfg`
-        3. `$HOME/.pywps.cfg`
+        2. `/etc/rooki.cfg`
+        3. `$HOME/.rooki.cfg`
     :returns: configuration files
     :rtype: list of strings
     """

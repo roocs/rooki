@@ -86,6 +86,27 @@ class Subset(Operator):
     METHOD = 'subset'
 
 
+class Diff(Operator):
+    METHOD = 'diff'
+
+    def _tree(self, tree=defaultdict(dict)):
+        args = [arg._tree(tree) for arg in self.args]
+        tree['steps'][self.method_key] = {
+            'run': self.METHOD,
+            'in': {
+                'data_ref_a': _unpack_if_single([self.args[0].data_ref]),
+                'data_ref_b': _unpack_if_single([self.args[1].data_ref]),
+                **self.kwargs,
+            }
+        }
+        tree['outputs']['output'] = self.data_ref
+        return tree
+
+    @property
+    def variable(self):
+        return 'var'
+
+
 def _unpack_if_single(list):
     try:
         [item] = list
