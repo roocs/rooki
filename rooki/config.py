@@ -50,6 +50,10 @@ def load_configuration(cfgfiles=None):
     LOGGER.info('loading configuration')
     CONFIG = configparser.ConfigParser(os.environ)
 
+    LOGGER.debug('setting default values')
+    CONFIG.add_section('service')
+    CONFIG.set('service', 'url', 'http://localhost:5000/wps')
+
     config_files = _get_default_config_files_location()
     if cfgfiles:
         config_files.extend(cfgfiles)
