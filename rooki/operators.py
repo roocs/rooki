@@ -1,4 +1,3 @@
-
 """A mock-up rooki API."""
 
 import json
@@ -18,11 +17,11 @@ class Operator:
         tree['steps'][self.method_key] = {
             'run': self.METHOD,
             'in': {
-                'data_ref': _unpack_if_single([arg.data_ref for arg in self.args]),
+                'collection': _unpack_if_single([arg.collection for arg in self.args]),
                 **self.kwargs,
             }
         }
-        tree['outputs']['output'] = self.data_ref
+        tree['outputs']['output'] = self.collection
         return tree
 
     def _serialise(self, doc='tree workflow'):
@@ -44,7 +43,7 @@ class Operator:
         return methods
 
     @property
-    def data_ref(self):
+    def collection(self):
         return f'{self.method_key}/output'
 
     @property
@@ -74,7 +73,7 @@ class Input:
         return methods
 
     @property
-    def data_ref(self):
+    def collection(self):
         return f'inputs/{self.variable}'
 
 
@@ -94,12 +93,12 @@ class Diff(Operator):
         tree['steps'][self.method_key] = {
             'run': self.METHOD,
             'in': {
-                'data_ref_a': _unpack_if_single([self.args[0].data_ref]),
-                'data_ref_b': _unpack_if_single([self.args[1].data_ref]),
+                'collection_a': _unpack_if_single([self.args[0].collection]),
+                'collection_b': _unpack_if_single([self.args[1].collection]),
                 **self.kwargs,
             }
         }
-        tree['outputs']['output'] = self.data_ref
+        tree['outputs']['output'] = self.collection
         return tree
 
     @property
