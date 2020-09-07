@@ -56,6 +56,9 @@ lint: ## check style with flake8
 test: ## run tests quickly with the default Python
 	py.test
 
+test-nb:  ## py.test for notebooks
+	pytest --nbval $(CURDIR)/notebooks/monitor --sanitize-with $(CURDIR)/notebooks/monitor/output_sanitize.cfg
+
 test-all: ## run tests on every Python version with tox
 	tox
 
