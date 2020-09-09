@@ -8,3 +8,7 @@ dependencies:
   - jupyterlab
   - ipywidgets
   - nodejs
+  - xarray>=0.15
+  - netcdf4
+  - pip:
+    - -e git+https://github.com/cehbrecht/pymetalink.git@patched#egg=metalink
