@@ -26,7 +26,7 @@ with open("README.md") as readme_file:
     _long_description = readme_file.read()
 
 
-requirements = ['Click>=6.0', 'birdhouse-birdy>=0.6.9']
+requirements = [line.strip() for line in open("requirements.txt")]
 test_requirements = ['pytest', ]
 
 setup_requirements = ['pytest-runner', ]
@@ -74,7 +74,10 @@ setup(
             'rooki=rooki.cli:main',
         ],
     },
-    install_requires=requirements,
+    install_requires=[
+        requirements,
+        # 'metalink @ git+https://github.com/metalink-dev/pymetalink.git',
+    ],
     long_description=_long_description,
     long_description_content_type='text/markdown',
 

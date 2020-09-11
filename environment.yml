@@ -10,3 +10,5 @@ dependencies:
   # tests
   #- pytest
   #- flake8
+  - pip:
+    - -e git+https://github.com/metalink-dev/pymetalink.git@master#egg=metalink
