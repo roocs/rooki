@@ -20,8 +20,8 @@ rooki._notebook = False
 
 
 def output(response):
-    return response.get()[1]
+    return response.get()[0]
 
 
 def open_dataset(response):
-    return response.get(asobj=True)[1]
+    return response.get(asobj=True)[0]
