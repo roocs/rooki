@@ -3,25 +3,27 @@
 """Top-level package for rooki."""
 
 from birdy import WPSClient
+from owslib.wps import ASYNC, SYNC
 from rooki import config
+from rooki.results import Result
 
 
 import logging
 
 __all__ = [
     'rooki',
-    'output',
-    'open_dataset',
+    'Result',
 ]
 
-rooki = WPSClient(config.get_config_value('service', 'url'), verify=False, progress=True)
-rooki.logger.setLevel(logging.ERROR)
-rooki._notebook = False
+
+class Rooki(object):
+    def __init__(self, url=None, mode=None, verify=True):
+        mode = mode or ASYNC
+        url = url or config.get_config_value('service', 'url')
+        progress = mode == ASYNC
+        self.client = WPSClient(url, verify=verify, progress=progress)
+        self.client.logger.setLevel(logging.ERROR)
+        self.client._notebook = False
 
 
-def output(response):
-    return response.get()[0]
-
-
-def open_dataset(response):
-    return response.get(asobj=True)[0]
+rooki = Rooki(verify=False).client
