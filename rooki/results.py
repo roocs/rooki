@@ -15,6 +15,10 @@ class Result(object):
         self._num_files = None
 
     @property
+    def ok(self):
+        return self.response.isSucceded()
+
+    @property
     def url(self):
         return self.response.get()[0]
 
@@ -65,7 +69,11 @@ class Result(object):
         return datasets
 
     def __str__(self):
-        return f"Metalink URL: {self.url}, size: {self.size}, num files: {self.num_files}"
+        if self.ok:
+            msg = f"Metalink URL: {self.url}, size: {self.size}, num files: {self.num_files}"
+        else:
+            msg = "failed"
+        return msg
 
     def __repr__(self):
         return self.__str__()
