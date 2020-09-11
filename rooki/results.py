@@ -8,6 +8,9 @@ class Result(object):
         self.response = response
         self.outdir = outdir or tempfile.mkdtemp()
         self.verify = verify
+        # cache
+        self._xml = None
+        self._doc = None
 
     @property
     def url(self):
@@ -15,19 +18,26 @@ class Result(object):
 
     @property
     def xml(self):
-        return requests.get(self.url, verify=self.verify).text
+        if not self._xml:
+            self._xml = requests.get(self.url, verify=self.verify).text
+        return self._xml
 
     @property
     def doc(self):
-        return BeautifulSoup(self.xml, 'xml')
+        if not self._doc:
+            self._doc = BeautifulSoup(self.xml, 'xml')
+        return self._doc
 
     @property
     def size(self):
-        return 0
+        total_size = 0
+        for size in self.doc.find_all('size'):
+            total_size += int(size.text)
+        return f"{total_size} bytes"
 
     @property
     def num_files(self):
-        return 0
+        return len(self.doc.find_all('file'))
 
     def download_urls(self):
         return [url.text for url in self.doc.find_all('metaurl')]
