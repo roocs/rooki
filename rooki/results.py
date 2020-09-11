@@ -21,6 +21,14 @@ class Result(object):
     def doc(self):
         return BeautifulSoup(self.xml, 'xml')
 
+    @property
+    def size(self):
+        return 0
+
+    @property
+    def num_files(self):
+        return 0
+
     def download_urls(self):
         return [url.text for url in self.doc.find_all('metaurl')]
 
@@ -39,3 +47,9 @@ class Result(object):
         except Exception:
             datasets = []
         return datasets
+
+    def __str__(self):
+        return f"Metalink URL: {self.url}"
+
+    def __repr__(self):
+        return self.__str__()
