@@ -3,7 +3,8 @@
 import json
 from collections import defaultdict
 
-from rooki import rooki
+from .client import rooki
+from .results import Result
 
 
 class Operator:
@@ -24,7 +25,7 @@ class Operator:
         tree['outputs']['output'] = self.collection
         return tree
 
-    def _serialise(self, doc='tree workflow'):
+    def _serialise(self, doc='workflow'):
         tree = self._tree()
         tree['doc'] = doc
         return json.dumps(tree)
@@ -57,13 +58,14 @@ class Input:
         self.variable = variable
         self.dataset = dataset
 
-    def _serialise(self, doc='tree workflow'):
+    def _serialise(self, doc='workflow'):
         tree = self._tree()
         tree['doc'] = doc
         return json.dumps(tree)
 
     def orchestrate(self):
-        return rooki.orchestrate(workflow=self._serialise())
+        resp = rooki.orchestrate(workflow=self._serialise())
+        return Result(resp)
 
     def _tree(self, tree=defaultdict(dict)):
         tree['inputs'][self.variable] = self.dataset
