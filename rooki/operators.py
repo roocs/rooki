@@ -31,7 +31,8 @@ class Operator:
         return json.dumps(tree)
 
     def orchestrate(self):
-        return rooki.orchestrate(workflow=self._serialise())
+        resp = rooki.orchestrate(workflow=self._serialise())
+        return Result(resp)
 
     @property
     def method_key(self):
