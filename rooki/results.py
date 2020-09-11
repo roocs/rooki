@@ -19,7 +19,7 @@ class Result(object):
 
     @property
     def doc(self):
-        return BeautifulSoup(self.xml)
+        return BeautifulSoup(self.xml, 'xml')
 
     def download_urls(self):
         return [url.text for url in self.doc.find_all('metaurl')]
