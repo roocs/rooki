@@ -3,7 +3,7 @@
 """Top-level package for rooki."""
 
 from birdy import WPSClient
-from owslib.wps import ASYNC, SYNC
+from owslib.wps import ASYNC
 from rooki import config
 from rooki.results import Result
 
