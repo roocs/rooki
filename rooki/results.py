@@ -11,6 +11,8 @@ class Result(object):
         # cache
         self._xml = None
         self._doc = None
+        self._size = None
+        self._num_files = None
 
     @property
     def url(self):
@@ -30,14 +32,18 @@ class Result(object):
 
     @property
     def size(self):
-        total_size = 0
-        for size in self.doc.find_all('size'):
-            total_size += int(size.text)
-        return f"{total_size} bytes"
+        if self._size is None:
+            total_size = 0
+            for size in self.doc.find_all('size'):
+                total_size += int(size.text)
+            self._size = f"{total_size} bytes"
+        return self._size
 
     @property
     def num_files(self):
-        return len(self.doc.find_all('file'))
+        if self._num_files is None:
+            self._num_files = len(self.doc.find_all('file'))
+        return self._num_files
 
     def download_urls(self):
         return [url.text for url in self.doc.find_all('metaurl')]
@@ -59,7 +65,7 @@ class Result(object):
         return datasets
 
     def __str__(self):
-        return f"Metalink URL: {self.url}"
+        return f"Metalink URL: {self.url}, size: {self.size}, num files: {self.num_files}"
 
     def __repr__(self):
         return self.__str__()
