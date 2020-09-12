@@ -7,6 +7,12 @@ dependencies:
   - pip
   #- openssl
   - birdy
+  - beautifulsoup4
+  # open xarray results
+  - netcdf4
+  - xarray>=0.15
   # tests
   #- pytest
   #- flake8
+  - pip:
+    - -e git+https://github.com/metalink-dev/pymetalink.git@master#egg=metalink

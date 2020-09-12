@@ -1,5 +1,7 @@
 # rooki
 
+[![Build Status](https://travis-ci.com/roocs/rooki.svg?branch=master)](https://travis-ci.com/roocs/rooki)
+
 A client for roocs climate data operations service.
 
 
@@ -18,7 +20,7 @@ https://nbviewer.jupyter.org/github/roocs/rooki/tree/master/notebooks/
 ## Installation
 
 ```
-$ conda create -n rooki python=3.7
+$ conda create -n rooki python=3.8
 $ conda activate rooki
 $ pip install git+https://github.com/roocs/rooki@master#egg=rooki
 ```
@@ -28,7 +30,7 @@ $ pip install git+https://github.com/roocs/rooki@master#egg=rooki
 ```
 from rooki import rooki
 result = rooki.subset()
-result.get()
+result.download_urls()
 ```
 
 # Credits
