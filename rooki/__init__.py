@@ -5,8 +5,6 @@
 from rooki.client import rooki
 
 
-import logging
-
 __all__ = [
     'rooki',
 ]

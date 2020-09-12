@@ -13,7 +13,8 @@ class Operator:
         self.kwargs = kwargs
 
     def _tree(self, tree=defaultdict(dict)):
-        args = [arg._tree(tree) for arg in self.args]
+        # args = [arg._tree(tree) for arg in self.args]
+        [arg._tree(tree) for arg in self.args]
         tree['steps'][self.method_key] = {
             'run': self.METHOD,
             'in': {
@@ -38,7 +39,8 @@ class Operator:
         return f'{self.METHOD}_{self.variable}_{methods.count(self.METHOD)}'
 
     def _get_methods(self, methods):
-        method_names = [arg._get_methods(methods) for arg in self.args]
+        # method_names = [arg._get_methods(methods) for arg in self.args]
+        [arg._get_methods(methods) for arg in self.args]
         methods.append(self.METHOD)
         return methods
 
@@ -89,7 +91,8 @@ class Diff(Operator):
     METHOD = 'diff'
 
     def _tree(self, tree=defaultdict(dict)):
-        args = [arg._tree(tree) for arg in self.args]
+        # args = [arg._tree(tree) for arg in self.args]
+        [arg._tree(tree) for arg in self.args]
         tree['steps'][self.method_key] = {
             'run': self.METHOD,
             'in': {
