@@ -10,7 +10,7 @@ dist: xenial
 env:
   global:
     - CURL_CA_BUNDLE=
-    - ROOK_URL="https://bovec.dkrz.de/ows/proxy/rook"
+    - ROOK_URL="http://cp4cds-cn1.dkrz.de/wps"
 
 matrix:
   fast_finish: true

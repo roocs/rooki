@@ -13,8 +13,9 @@ class Rooki(WPSClient):
         url = url or config.get_config_value('service', 'url')
         progress = mode == ASYNC
         super(Rooki, self).__init__(url, verify=verify, progress=progress)
-        self.logger.setLevel(logging.ERROR)
         self._notebook = False
+        self.logger = logging.getLogger("rooki")
+        self.logger.addHandler(logging.NullHandler())
 
     def _execute(self, pid, **kwargs):
         resp = super(Rooki, self)._execute(pid, **kwargs)

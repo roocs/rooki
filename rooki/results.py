@@ -19,6 +19,14 @@ class Result(object):
         return self.response.isSucceded()
 
     @property
+    def status(self):
+        if self.ok:
+            status = self.response.status
+        else:
+            status = '; '.join([error.text.strip() for error in self.response.errors])
+        return status
+
+    @property
     def url(self):
         return self.response.get()[0]
 
@@ -72,7 +80,7 @@ class Result(object):
         if self.ok:
             msg = f"Metalink URL: {self.url}, size: {self.size}, num files: {self.num_files}"
         else:
-            msg = "failed"
+            msg = self.status
         return msg
 
     def __repr__(self):
