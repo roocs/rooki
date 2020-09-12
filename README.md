@@ -1,5 +1,7 @@
 # rooki
 
+[![Build Status](https://travis-ci.com/roocs/rooki.svg?branch=master)](https://travis-ci.com/roocs/rooki)
+
 A client for roocs climate data operations service.
 
 
