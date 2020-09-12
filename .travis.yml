@@ -1,6 +1,7 @@
-dist: xenial   # required for Python >= 3.7
+language: python
 
-language: generic
+os: linux
+dist: xenial
 
 # branches:
 #  only:
@@ -40,8 +41,8 @@ install:
   - conda env update -f environment.yml
   - source activate rooki
   # Packages for testing
-  - conda install pytest pytest-notebook flake8
-  # Install Emu WPS
+  - conda install pytest nbval flake8
+  # Install package
   - python setup.py install
 script:
   - make test
