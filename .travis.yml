@@ -7,6 +7,12 @@ dist: xenial
 #  only:
 #    - master
 
+env:
+  global:
+    - CURL_CA_BUNDLE=
+  jobs:
+    - ROOK_URL=https://bovec.dkrz.de/ows/proxy/rook
+
 matrix:
   fast_finish: true
   include:
