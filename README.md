@@ -32,8 +32,10 @@ $ pip install git+https://github.com/roocs/rooki@master#egg=rooki
 ## Usage
 
 ```python
-# Set ROOK_URL ... or use default
-# os.environ['ROOK_URL'] = http://localhost:5000/wps
+# Optional: set ROOK_URL ... or use default
+import os
+os.environ['ROOK_URL'] = http://localhost:5000/wps
+# import rooki
 from rooki import rooki
 # run subset on c3s-cmip5 dataset with time selection
 response = rooki.subset(
@@ -42,7 +44,7 @@ response = rooki.subset(
 # successful?
 response.ok
 # show links to result files
-responses.download_urls()
+response.download_urls()
 ```
 
 # Credits
