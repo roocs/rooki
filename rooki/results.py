@@ -78,7 +78,7 @@ class Result(object):
 
     def __str__(self):
         if self.ok:
-            msg = f"Metalink URL: {self.url}, size: {self.size}, num files: {self.num_files}"
+            msg = f"Metalink URL: {self.url}, num files: {self.num_files}"
         else:
             msg = self.status
         return msg

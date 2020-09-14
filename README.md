@@ -8,9 +8,13 @@ A client for roocs climate data operations service.
 * Free software: BSD - see LICENSE file in top-level package directory
 
 
-## NBViewer
+## Online Demo
 
-https://nbviewer.jupyter.org/github/roocs/rooki/tree/master/notebooks/
+You can try Rooki online using Binder (just click on the binder link below),
+or view the notebooks on NBViewer.
+
+[![Binder Launcher](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/roocs/rook.git/master?filepath=notebooks)
+[![NBViewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.jupyter.org/github/roocs/rooki/tree/master/notebooks/)
 
 
 ## Features
@@ -19,18 +23,26 @@ https://nbviewer.jupyter.org/github/roocs/rooki/tree/master/notebooks/
 
 ## Installation
 
-```
-$ conda create -n rooki python=3.8
+```bash
+$ conda create -n rooki -c conda-forge python=3.8 birdy
 $ conda activate rooki
 $ pip install git+https://github.com/roocs/rooki@master#egg=rooki
 ```
 
 ## Usage
 
-```
+```python
+# Set ROOK_URL ... or use default
+# os.environ['ROOK_URL'] = http://localhost:5000/wps
 from rooki import rooki
-result = rooki.subset()
-result.download_urls()
+# run subset on c3s-cmip5 dataset with time selection
+response = rooki.subset(
+  collection='c3s-cmip5.output1.ICHEC.EC-EARTH.historical.day.atmos.day.r1i1p1.tas.latest',
+  time='1860-01-01/1900-12-30')
+# successful?
+response.ok
+# show links to result files
+responses.download_urls()
 ```
 
 # Credits
