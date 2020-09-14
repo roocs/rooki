@@ -1,5 +1,5 @@
 #!/bin/bash
 
-export ROOK_URL="https://bovec.dkrz.de/ows/proxy/rook"
+export ROOK_URL="http://cp4cds-cn1.dkrz.de/wps"
 
 exec "$@"
