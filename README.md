@@ -24,7 +24,7 @@ or view the notebooks on NBViewer.
 ## Installation
 
 ```bash
-$ conda create -n rooki python=3.8
+$ conda create -n rooki -c conda-forge python=3.8 birdy
 $ conda activate rooki
 $ pip install git+https://github.com/roocs/rooki@master#egg=rooki
 ```
@@ -36,13 +36,13 @@ $ pip install git+https://github.com/roocs/rooki@master#egg=rooki
 # os.environ['ROOK_URL'] = http://localhost:5000/wps
 from rooki import rooki
 # run subset on c3s-cmip5 dataset with time selection
-result = rooki.subset(
+response = rooki.subset(
   collection='c3s-cmip5.output1.ICHEC.EC-EARTH.historical.day.atmos.day.r1i1p1.tas.latest',
   time='1860-01-01/1900-12-30')
 # successful?
-result.ok
+response.ok
 # show links to result files
-result.download_urls()
+responses.download_urls()
 ```
 
 # Credits
