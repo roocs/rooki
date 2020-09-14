@@ -69,6 +69,10 @@ def load_configuration(cfgfiles=None):
     # dirty hack to set rook url on binder
     if 'ROOK_URL' in os.environ:
         CONFIG.set('service', 'url', os.environ['ROOK_URL'])
+    if 'ROOK_MODE' in os.environ:
+        CONFIG.set('service', 'mode', os.environ['ROOK_MODE'])
+    if 'ROOK_SSL_VERIFY' in os.environ:
+        CONFIG.set('service', 'ssl_verify', os.environ['ROOK_SSL_VERIFY'])
 
 
 def _get_default_config_files_location():
