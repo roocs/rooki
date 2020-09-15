@@ -13,7 +13,7 @@ A client for roocs climate data operations service.
 You can try Rooki online using Binder (just click on the binder link below),
 or view the notebooks on NBViewer.
 
-[![Binder Launcher](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/roocs/rook.git/master?filepath=notebooks)
+[![Binder Launcher](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/roocs/rooki.git/master?filepath=notebooks)
 [![NBViewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.jupyter.org/github/roocs/rooki/tree/master/notebooks/)
 
 
