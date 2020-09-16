@@ -11,7 +11,7 @@ env:
   global:
     - CURL_CA_BUNDLE=
     - ROOK_URL="http://cp4cds-cn1.dkrz.de/wps"
-    - ROOK_MODE="sync"
+    - ROOK_MODE="async"
 
 matrix:
   fast_finish: true
