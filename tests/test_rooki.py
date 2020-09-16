@@ -18,3 +18,8 @@ def test_rooki_subset(rooki):
     assert resp.ok is True
     assert resp.num_files == 1
     assert len(resp.download_urls()) == 1
+    assert resp.size > 1000000
+    assert resp.size_in_mb > 1.0
+    assert resp.size_in_gb > 0.0
+    assert len(resp.download()) == 1
+    assert len(resp.datasets()) == 1

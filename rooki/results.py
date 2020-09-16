@@ -33,7 +33,10 @@ class Result(object):
     @property
     def xml(self):
         if not self._xml:
-            self._xml = requests.get(self.url, verify=self.verify).text
+            try:
+                self._xml = requests.get(self.url, verify=self.verify).text
+            except Exception as e:
+                raise Exception(f"Could not download metalink document. {e}")
         return self._xml
 
     @property
@@ -44,12 +47,24 @@ class Result(object):
 
     @property
     def size(self):
+        """total size of all files in bytes."""
         if self._size is None:
             total_size = 0
             for size in self.doc.find_all('size'):
                 total_size += int(size.text)
-            self._size = f"{total_size} bytes"
+            self._size = total_size
         return self._size
+
+    @property
+    def size_in_mb(self):
+        size_kb = self.size / 1024.0
+        size_mb = size_kb / 1024.0
+        return size_mb
+
+    @property
+    def size_in_gb(self):
+        size_gb = self.size_in_mb / 1024.0
+        return size_gb
 
     @property
     def num_files(self):
@@ -60,7 +75,7 @@ class Result(object):
     def download_urls(self):
         return [url.text for url in self.doc.find_all('metaurl')]
 
-    def files(self):
+    def download(self):
         try:
             import metalink.download
             files = metalink.download.get(self.url, self.outdir, segmented=False)
@@ -71,7 +86,7 @@ class Result(object):
     def datasets(self):
         try:
             import xarray as xr
-            datasets = [xr.open_dataset(file) for file in self.files()]
+            datasets = [xr.open_dataset(file) for file in self.download()]
         except Exception:
             datasets = []
         return datasets
