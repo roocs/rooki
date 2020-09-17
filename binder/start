@@ -1,5 +1,6 @@
 #!/bin/bash
 
 export ROOK_URL="http://cp4cds-cn1.dkrz.de/wps"
+export ROOK_MODE="sync"
 
 exec "$@"
