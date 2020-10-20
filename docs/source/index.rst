@@ -5,4 +5,5 @@
    :maxdepth: 1
    :caption: Contents:
 
+   notebooks
    history
