@@ -14,7 +14,13 @@ rooki
     :alt: GitHub license
 
 
-A client for roocs climate data operations service.
+Rooki is a client for roocs climate data operations service (rook_).
+
+The rooki python package is a lightweight wrapper around the birdy_ client library for WPS.
+It provides the *rooki* python object that has methods that can be called to query and invoke
+the rook_ WPS.
+
+A Jupyter Notebook is provided to demonstrate the basic use of rooki.
 
 
 * Free software: BSD - see LICENSE file in top-level package directory
@@ -77,3 +83,5 @@ This package was created with Cookiecutter_ and the `cookiecutter-pypackage`_ pr
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _cookiecutter-pypackage: https://github.com/audreyr/cookiecutter-pypackage
+.. _birdy: https://github.com/bird-house/birdy
+.. _rook: https://github.com/roocs/rook
