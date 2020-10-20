@@ -1,0 +1,8 @@
+# conda env update -f docs/environment.yml
+name: rooki
+channels:
+- conda-forge
+- defaults
+dependencies:
+- sphinx
+- nbsphinx

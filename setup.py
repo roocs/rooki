@@ -22,7 +22,7 @@ from setuptools import setup, find_packages
 #
 # Use markdown format read me file as GitHub will render it automatically
 # on package page
-with open("README.md") as readme_file:
+with open("README.rst") as readme_file:
     _long_description = readme_file.read()
 
 
@@ -79,7 +79,7 @@ setup(
         # 'metalink @ git+https://github.com/metalink-dev/pymetalink.git',
     ],
     long_description=_long_description,
-    long_description_content_type='text/markdown',
+    long_description_content_type='text/x-rst',
 
     include_package_data=True,
     keywords='rooki',

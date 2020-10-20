@@ -1,5 +1,8 @@
 graft rooki
+include Makefile
 include *.md
+include *.txt
+include *.rst
 global-exclude __pycache__
 global-exclude *.py[co]
 
