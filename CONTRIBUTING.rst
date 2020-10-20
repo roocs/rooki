@@ -106,7 +106,7 @@ Before you submit a pull request, check that it meets these guidelines:
 #. The pull request should include tests.
 #. If the pull request adds functionality, the docs should be updated. Put
    your new functionality into a function with a docstring, and add the
-   feature to the list in README.md.
+   feature to the list in README.rst.
 #. The pull request should work for Python 3.6 and above. Check
    https://travis-ci.org/roocs/rooki/pull_requests
    and make sure that the tests pass for all supported Python versions.
@@ -122,13 +122,13 @@ Deploying
 ---------
 
 A reminder for the maintainers on how to deploy.
-Make sure all your changes are committed (including an entry in HISTORY.md).
+Make sure all your changes are committed (including an entry in HISTORY.rst).
 Then run:
 
-.. code-block::
+.. code-block:: console
 
-  $ bumpversion patch # possible: major / minor / patch
-  $ git push
-  $ git push --tags
+    $ bumpversion patch # possible: major / minor / patch
+    $ git push
+    $ git push --tags
 
 Travis will then deploy to PyPI if tests pass.

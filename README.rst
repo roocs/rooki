@@ -1,4 +1,3 @@
-=====
 rooki
 =====
 
@@ -28,7 +27,7 @@ A Jupyter Notebook is provided to demonstrate the basic use of rooki.
 
 
 Online Demo
-===========
+-----------
 
 You can try Rooki online using Binder (just click on the binder link below),
 or view the notebooks on NBViewer.
@@ -44,12 +43,12 @@ or view the notebooks on NBViewer.
 
 
 Features
-========
+--------
 
 * TODO
 
 Installation
-============
+------------
 
 .. code-block:: console
 
@@ -59,7 +58,7 @@ Installation
 
 
 Usage
-=====
+-----
 
 .. code-block:: python
 
@@ -78,7 +77,7 @@ Usage
   response.download_urls()
 
 Credits
-=======
+-------
 
 This package was created with Cookiecutter_ and the `cookiecutter-pypackage`_ project template.
 
