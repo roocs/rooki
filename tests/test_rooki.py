@@ -14,7 +14,8 @@ def test_rooki_settings(rooki):
 
 def test_rooki_subset(rooki):
     resp = rooki.subset(
-        collection='c3s-cmip5.output1.ICHEC.EC-EARTH.historical.day.atmos.day.r1i1p1.tas.latest')
+        collection='c3s-cmip5.output1.ICHEC.EC-EARTH.historical.day.atmos.day.r1i1p1.tas.latest',
+        time='1860-01-01/1900-12-30')
     assert resp.ok is True
     assert resp.num_files == 1
     assert len(resp.download_urls()) == 1
