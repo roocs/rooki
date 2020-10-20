@@ -8,7 +8,7 @@ from .common import ROOK_URL
 
 def test_rooki_settings(rooki):
     assert rooki.url == ROOK_URL
-    assert rooki.mode == 'sync'
+    assert rooki.mode == 'async'
     assert rooki.verify is False
 
 
