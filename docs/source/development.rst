@@ -20,10 +20,11 @@ Install additional dependencies:
 
   $ pip install -r requirements_dev.txt
 
-When you're done making changes, check that your changes pass `flake8` and the tests:
+When you're done making changes, check that your changes pass `black`, `flake8` and the tests:
 
 .. code-block:: console
 
+    $ black rooki
     $ flake8 rooki
     $ pytest tests
 
@@ -35,8 +36,8 @@ Or use the Makefile:
      $ make test
 
 
-Black your code
----------------
+Add pre-commit hooks
+--------------------
 
 Before committing your changes, we ask that you install `pre-commit` in your environment.
 `Pre-commit` runs git hooks that ensure that your code resembles that of the project
