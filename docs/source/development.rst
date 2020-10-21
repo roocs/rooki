@@ -24,8 +24,8 @@ When you're done making changes, check that your changes pass `black`, `flake8` 
 
 .. code-block:: console
 
-    $ black rooki
-    $ flake8 rooki
+    $ black rooki tests
+    $ flake8 rooki tests
     $ pytest tests
 
 Or use the Makefile:
