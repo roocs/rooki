@@ -1,42 +1,50 @@
-.. highlight:: shell
-
 Development
-***********
+===========
 
 Get Started!
-============
+------------
 
-Check out code from the rooki GitHub repo and start the installation::
+Check out code from the rooki GitHub repo and start the installation:
 
-   $ git clone https://github.com/bird-house/birdy.git
-   $ cd rooki https://github.com/roocs/rooki.git
+.. code-block:: console
+
+   $ git clone https://github.com/roocs/rooki.git
+   $ cd rooki
    $ conda env create -f environment.yml
    $ python setup.py develop
 
-Install additional dependencies::
+Install additional dependencies:
+
+.. code-block:: console
 
   $ pip install -r requirements_dev.txt
 
-When you're done making changes, check that your changes pass `flake8` and the tests::
+When you're done making changes, check that your changes pass `flake8` and the tests:
+
+.. code-block:: console
 
     $ flake8
     $ pytest
 
-   Or use the Makefile::
+Or use the Makefile:
+
+.. code-block:: console
 
      $ make lint
      $ make test
 
 Write Documentation
-===================
+-------------------
 
 You can find the documentation in the `docs/source` folder. To generate the Sphinx
-documentation locally you can use the `Makefile`::
+documentation locally you can use the `Makefile`:
+
+.. code-block:: console
 
   $ make docs
 
 Bump a new version
-===================
+------------------
 
 Make a new version of rooki in the following steps:
 
