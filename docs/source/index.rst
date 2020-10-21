@@ -6,5 +6,6 @@
    :caption: Contents:
 
    installation
+   usage
    notebooks/index
    history
