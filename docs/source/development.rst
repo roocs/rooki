@@ -11,7 +11,8 @@ Check out code from the rooki GitHub repo and start the installation:
    $ git clone https://github.com/roocs/rooki.git
    $ cd rooki
    $ conda env create -f environment.yml
-   $ python setup.py develop
+   $ conda activate rooki
+   $ pip install -e .
 
 Install additional dependencies:
 
@@ -23,8 +24,8 @@ When you're done making changes, check that your changes pass `flake8` and the t
 
 .. code-block:: console
 
-    $ flake8
-    $ pytest
+    $ flake8 rooki
+    $ pytest tests
 
 Or use the Makefile:
 
