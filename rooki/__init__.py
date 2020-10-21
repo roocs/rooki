@@ -6,5 +6,5 @@ from rooki.client import rooki
 
 
 __all__ = [
-    'rooki',
+    "rooki",
 ]

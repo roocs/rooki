@@ -23,7 +23,7 @@ class Result(object):
         if self.ok:
             status = self.response.status
         else:
-            status = '; '.join([error.text.strip() for error in self.response.errors])
+            status = "; ".join([error.text.strip() for error in self.response.errors])
         return status
 
     @property
@@ -42,7 +42,7 @@ class Result(object):
     @property
     def doc(self):
         if not self._doc:
-            self._doc = BeautifulSoup(self.xml, 'xml')
+            self._doc = BeautifulSoup(self.xml, "xml")
         return self._doc
 
     @property
@@ -50,7 +50,7 @@ class Result(object):
         """total size of all files in bytes."""
         if self._size is None:
             total_size = 0
-            for size in self.doc.find_all('size'):
+            for size in self.doc.find_all("size"):
                 total_size += int(size.text)
             self._size = total_size
         return self._size
@@ -69,15 +69,16 @@ class Result(object):
     @property
     def num_files(self):
         if self._num_files is None:
-            self._num_files = len(self.doc.find_all('file'))
+            self._num_files = len(self.doc.find_all("file"))
         return self._num_files
 
     def download_urls(self):
-        return [url.text for url in self.doc.find_all('metaurl')]
+        return [url.text for url in self.doc.find_all("metaurl")]
 
     def download(self):
         try:
             import metalink.download
+
             files = metalink.download.get(self.url, self.outdir, segmented=False)
         except Exception:
             files = []
@@ -86,6 +87,7 @@ class Result(object):
     def datasets(self):
         try:
             import xarray as xr
+
             datasets = [xr.open_dataset(file) for file in self.download()]
         except Exception:
             datasets = []
