@@ -9,10 +9,10 @@ import logging
 
 class Rooki(WPSClient):
     def __init__(self, url=None, mode=None, verify=None):
-        self._url = url or config.get_config_value('service', 'url')
-        self._mode = mode or config.get_config_value('service', 'mode')
+        self._url = url or config.get_config_value("service", "url")
+        self._mode = mode or config.get_config_value("service", "mode")
         if verify is None:
-            self._verify = config.get_config_value('service', 'ssl_verify')
+            self._verify = config.get_config_value("service", "ssl_verify")
         else:
             self._verify = verify
         progress = self.mode == ASYNC
