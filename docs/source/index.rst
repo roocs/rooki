@@ -7,5 +7,6 @@
 
    installation
    usage
+   development
    notebooks/index
    history
