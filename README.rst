@@ -42,21 +42,6 @@ or view the notebooks on NBViewer.
    :height: 20
 
 
-Features
---------
-
-* TODO
-
-Installation
-------------
-
-.. code-block:: console
-
-  $ conda create -n rooki -c conda-forge python=3.8 birdy
-  $ conda activate rooki
-  $ pip install git+https://github.com/roocs/rooki@master#egg=rooki
-
-
 Usage
 -----
 
