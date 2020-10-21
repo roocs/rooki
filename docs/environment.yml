@@ -6,3 +6,4 @@ channels:
 dependencies:
 - sphinx
 - nbsphinx
+- ipython
