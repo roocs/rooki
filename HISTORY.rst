@@ -1,10 +1,11 @@
-History
-*******
+Version History
+===============
 
-0.2.0 (2020-10-21)
-==================
+v0.2.0 (2020-10-26)
+-------------------
 
-Changes:
+New Features
+^^^^^^^^^^^^
 
 * Lightweight wrapper for birdy WPS client.
 * Operators to build workflow.
@@ -12,7 +13,7 @@ Changes:
 * Result object to access MetaLink outputs.
 * Notebooks with usage examples.
 
-0.1.0 (2020-03-19)
-==================
+v0.1.0 (2020-03-19)
+-------------------
 
 * First release.

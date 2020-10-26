@@ -1,5 +1,7 @@
-Development
-===========
+.. _dev_guide:
+
+Development Guide
+=================
 
 Get Started!
 ------------
