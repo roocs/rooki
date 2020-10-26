@@ -9,4 +9,5 @@
    usage
    development
    notebooks/index
+   contributing
    history

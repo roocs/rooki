@@ -6,4 +6,5 @@ channels:
 dependencies:
 - sphinx
 - nbsphinx
+- pandoc
 - ipython
