@@ -4,7 +4,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - pip
+  # - pip
   #- openssl
   - birdy
   - beautifulsoup4
@@ -14,5 +14,5 @@ dependencies:
   # tests
   #- pytest
   #- flake8
-  - pip:
-    - -e git+https://github.com/metalink-dev/pymetalink.git@master#egg=metalink
+  #- pip:
+  #  - -e git+https://github.com/metalink-dev/pymetalink.git@master#egg=metalink
