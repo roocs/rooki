@@ -30,4 +30,4 @@ Check out code from the rooki GitHub repo and start the installation:
    $ git clone https://github.com/roocs/rooki.git
    $ cd rooki
    $ conda env create -f environment.yml
-   $ python setup.py install
+   $ pip install -e .

@@ -50,7 +50,7 @@ install:
   # Packages for testing
   - pip install pytest nbval flake8 black
   # Install package
-  - python setup.py install
+  - pip install -e .
 script:
   - make test
   - make test-nb
