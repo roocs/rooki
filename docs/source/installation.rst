@@ -8,8 +8,8 @@ Install from Anaconda
 
 * TODO
 
-Install from Source
--------------------
+Install from PyPi
+-----------------
 
 Create a conda environment with birdy and install with pip:
 
@@ -17,7 +17,7 @@ Create a conda environment with birdy and install with pip:
 
   $ conda create -n rooki -c conda-forge python=3.8 birdy
   $ conda activate rooki
-  $ pip install git+https://github.com/roocs/rooki@master#egg=rooki
+  $ pip install rooki
 
 
 Install from GitHub
