@@ -1,6 +1,14 @@
 Version History
 ===============
 
+v0.2.2 (2020-11-02)
+-------------------
+
+Bug Fixes
+^^^^^^^^^
+
+* Using pymetalink package from pypi (#34).
+
 v0.2.1 (2020-10-28)
 -------------------
 
