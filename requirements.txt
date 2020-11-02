@@ -1,3 +1,4 @@
 Click>=6.0
 birdhouse-birdy>=0.6.9
 beautifulsoup4>=4.9.1
+pymetalink>=6.2
