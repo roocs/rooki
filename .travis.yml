@@ -17,6 +17,34 @@ matrix:
   fast_finish: true
   include:
     - os: linux
+      name: "Linux (Python3.6)"
+      python: "3.6"
+      addons:
+          apt:
+            packages:
+              - pandoc
+            update: true
+      env:
+        - CONDA_FN="Miniconda3-latest-Linux-x86_64.sh"
+        - PEP8=false
+        - BLACK=false
+        - DOCS=false
+        - PYTHON_DESIRED=3.6
+    - os: linux
+      name: "Linux (Python3.7 + docs)"
+      python: "3.7"
+      addons:
+          apt:
+            packages:
+              - pandoc
+            update: true
+      env:
+        - CONDA_FN="Miniconda3-latest-Linux-x86_64.sh"
+        - PEP8=false
+        - BLACK=false
+        - DOCS=true
+        - PYTHON_DESIRED=3.7
+    - os: linux
       name: "Linux (Python3.8 + pep8)"
       python: "3.8"
       addons:
@@ -28,6 +56,7 @@ matrix:
         - CONDA_FN="Miniconda3-latest-Linux-x86_64.sh"
         - PEP8=true
         - BLACK=true
+        - DOCS=false
         - PYTHON_DESIRED=3.8
 
 sudo: false
@@ -46,6 +75,7 @@ before_install:
 install:
   # Update now the env with our environment
   - conda env update -f environment.yml
+  - if [[ $DOCS == true ]]; then conda env update -f docs/environment.yml; fi
   - source activate rooki
   # Packages for testing
   - pip install pytest nbval flake8 black
@@ -56,3 +86,4 @@ script:
   - make test-nb
   - if [[ $PEP8 == true ]]; then flake8 rooki tests; fi
   - if [[ $BLACK == true ]]; then black --check --target-version py38 rooki tests; fi
+  - if [[ $DOCS == true ]]; then make -C docs html; fi
