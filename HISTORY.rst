@@ -1,6 +1,16 @@
 Version History
 ===============
 
+v0.2.3 (2020-11-05)
+-------------------
+
+New Features
+^^^^^^^^^^^^
+
+* Allow Python 3.6 (#36)
+* Run travis tests on multiple Python versions >= 3.6.
+* Run doc build test on travis.
+
 v0.2.2 (2020-11-02)
 -------------------
 
