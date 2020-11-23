@@ -93,6 +93,12 @@ class Result(object):
             datasets = []
         return datasets
 
+    def provenance(self):
+        return self.response.get()[1]
+
+    def provenance_image(self):
+        return self.response.get()[2]
+
     def __str__(self):
         if self.ok:
             msg = f"Metalink URL: {self.url}, num files: {self.num_files}"
