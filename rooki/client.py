@@ -8,13 +8,14 @@ import logging
 
 
 class Rooki(WPSClient):
-    def __init__(self, url=None, mode=None, verify=None):
+    def __init__(self, url=None, mode=None, verify=None, output_dir=None):
         self._url = url or config.get_config_value("service", "url")
         self._mode = mode or config.get_config_value("service", "mode")
         if verify is None:
             self._verify = config.get_config_value("service", "ssl_verify")
         else:
             self._verify = verify
+        self.output_dir = output_dir
         progress = self.mode == ASYNC
         super(Rooki, self).__init__(self._url, verify=self._verify, progress=progress)
         self._notebook = False
@@ -35,7 +36,7 @@ class Rooki(WPSClient):
 
     def _execute(self, pid, **kwargs):
         resp = super(Rooki, self)._execute(pid, **kwargs)
-        return Result(resp)
+        return Result(resp, output_dir=self.output_dir)
 
 
 rooki = Rooki()
