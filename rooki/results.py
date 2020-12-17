@@ -1,3 +1,4 @@
+import os
 import tempfile
 import requests
 from bs4 import BeautifulSoup
@@ -78,7 +79,6 @@ class Result(object):
     def download(self):
         try:
             import metalink.download
-
             files = metalink.download.get(self.url, self.output_dir, segmented=False)
         except Exception:
             files = []

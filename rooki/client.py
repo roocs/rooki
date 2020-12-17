@@ -1,3 +1,5 @@
+import os
+
 from birdy import WPSClient
 from owslib.wps import ASYNC
 from rooki import config
@@ -36,6 +38,8 @@ class Rooki(WPSClient):
 
     @property
     def output_dir(self):
+        if not os.path.isdir(self._output_dir):
+            os.makedirs(self._output_dir)
         return self._output_dir
 
     def _execute(self, pid, **kwargs):
