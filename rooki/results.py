@@ -1,12 +1,13 @@
+import os
 import tempfile
 import requests
 from bs4 import BeautifulSoup
 
 
 class Result(object):
-    def __init__(self, response, outdir=None, verify=False):
+    def __init__(self, response, output_dir=None, verify=False):
         self.response = response
-        self.outdir = outdir or tempfile.mkdtemp()
+        self.output_dir = tempfile.mkdtemp(prefix='metalink_', dir=output_dir)
         self.verify = verify
         # cache
         self._xml = None
@@ -78,8 +79,7 @@ class Result(object):
     def download(self):
         try:
             import metalink.download
-
-            files = metalink.download.get(self.url, self.outdir, segmented=False)
+            files = metalink.download.get(self.url, self.output_dir, segmented=False)
         except Exception:
             files = []
         return files
