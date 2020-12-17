@@ -29,3 +29,6 @@ def test_rooki_subset(rooki):
     assert resp.size_in_gb > 0.0
     assert len(resp.download()) == 1
     assert len(resp.datasets()) == 1
+    out_file = resp.download()[0]
+    assert out_file.startswith('/tmp/metalink_')
+    assert out_file.endswith('tas_day_EC-EARTH_historical_r1i1p1_18600101-19001229.nc')
