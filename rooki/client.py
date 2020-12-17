@@ -1,4 +1,5 @@
 import os
+import tempfile
 
 from birdy import WPSClient
 from owslib.wps import ASYNC
@@ -38,7 +39,9 @@ class Rooki(WPSClient):
 
     @property
     def output_dir(self):
-        if not os.path.isdir(self._output_dir):
+        if not self._output_dir:
+            self._output_dir = tempfile.gettempdir()
+        elif not os.path.isdir(self._output_dir):
             os.makedirs(self._output_dir)
         return self._output_dir
 

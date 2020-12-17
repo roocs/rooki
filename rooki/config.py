@@ -1,4 +1,5 @@
 import os
+import tempfile
 import configparser
 import logging
 
@@ -55,6 +56,7 @@ def load_configuration(cfgfiles=None):
     LOGGER.debug("setting default values")
     CONFIG.add_section("service")
     CONFIG.set("service", "url", "http://localhost:5000/wps")
+    CONFIG.set("service", "output_dir", tempfile.gettempdir())
 
     config_files = _get_default_config_files_location()
     if cfgfiles:
