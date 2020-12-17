@@ -1,6 +1,9 @@
+import pytest
+
 from rooki import operators as ops
 
 
+@pytest.mark.online
 def test_workflow_subset_chain():
     wf = ops.Subset(
         ops.Subset(

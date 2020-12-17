@@ -3,6 +3,8 @@
 
 """Tests for `rooki` package."""
 
+import pytest
+
 from .common import ROOK_URL
 
 
@@ -10,9 +12,10 @@ def test_rooki_settings(rooki):
     assert rooki.url == ROOK_URL
     assert rooki.mode == "async"
     assert rooki.verify is False
-    assert rooki.output_dir is None
+    assert rooki.output_dir == '/tmp'
 
 
+@pytest.mark.online
 def test_rooki_subset(rooki):
     resp = rooki.subset(
         collection="c3s-cmip5.output1.ICHEC.EC-EARTH.historical.day.atmos.day.r1i1p1.tas.latest",
