@@ -10,6 +10,7 @@ def test_rooki_settings(rooki):
     assert rooki.url == ROOK_URL
     assert rooki.mode == "async"
     assert rooki.verify is False
+    assert rooki.output_dir is None
 
 
 def test_rooki_subset(rooki):
