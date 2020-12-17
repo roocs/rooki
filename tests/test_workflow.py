@@ -19,7 +19,7 @@ def test_workflow_subset_chain():
     assert len(resp.download_urls()) == 1
     assert len(resp.download()) == 1
     out_file = resp.download()[0]
-    assert out_file.startswith('/tmp/metalink_')
+    assert out_file.startswith('/tmp/rooki/metalink_')
     assert out_file.endswith('tas_day_EC-EARTH_historical_r1i1p1_18800101-19001229.nc')
 
 
