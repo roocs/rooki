@@ -1,4 +1,3 @@
-import os
 import tempfile
 import requests
 from bs4 import BeautifulSoup
