@@ -1,6 +1,17 @@
+import json
+
 import pytest
 
 from rooki import operators as ops
+
+WF_EXAMPLE = {
+    "inputs": {"tas": ["c3s-cmip5.output1.ICHEC.EC-EARTH.historical.day.atmos.day.r1i1p1.tas.latest"]},
+    "steps": {
+        "subset_tas_1": {
+            "run": "subset", "in": {"collection": "inputs/tas", "time": "1860-01-01/1920-12-30"}},
+        "subset_tas_2": {
+            "run": "subset", "in": {"collection": "subset_tas_1/output", "time": "1880-01-01/1900-12-30"}}},
+    "outputs": {"output": "subset_tas_2/output"}, "doc": "workflow"}
 
 
 @pytest.mark.online
@@ -39,10 +50,7 @@ def test_workflow_serialize():
         ),
         time="1880-01-01/1900-12-30",
     )
-    assert (
-        wf._serialise()
-        == '{"inputs": {"tas": ["c3s-cmip5.output1.ICHEC.EC-EARTH.historical.day.atmos.day.r1i1p1.tas.latest"]}, "steps": {"subset_tas_1": {"run": "subset", "in": {"collection": "inputs/tas", "time": "1860-01-01/1920-12-30"}}, "subset_tas_2": {"run": "subset", "in": {"collection": "subset_tas_1/output", "time": "1880-01-01/1900-12-30"}}}, "outputs": {"output": "subset_tas_2/output"}, "doc": "workflow"}'
-    )  # noqa
+    assert json.loads(wf._serialise()) == WF_EXAMPLE
 
 
 def test_workflow_compare_serialize():
