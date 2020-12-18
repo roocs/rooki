@@ -5,8 +5,8 @@ rooki
     :target: https://rooki.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
-.. image:: https://travis-ci.com/roocs/rooki.svg?branch=master
-    :target: https://travis-ci.com/roocs/rooki
+.. image:: https://github.com/roocs/rooki/workflows/.github/workflows/main.yml/badge.svg
+    :target: https://github.com/roocs/rooki/actions
     :alt: Build Status
 
 .. image:: https://img.shields.io/github/license/roocs/rooki.svg

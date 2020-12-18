@@ -1,0 +1,43 @@
+name: Run continuous integration tests
+
+on: [ push, pull_request ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - python-version: 3.6
+            PEP8: false
+            BLACK: false
+          - python-version: 3.7
+            PEP8: false
+            BLACK: false
+          - python-version: 3.8
+            PEP8: true
+            BLACK: true
+          - python-version: 3.9
+            PEP8: false
+            BLACK: false
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flake8 black pytest
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Lint with flake8
+      run: flake8 rooki tests
+      # if: env.PEP
+    - name: Check formatting with black
+      run: black --check --target-version py38 rooki tests
+      # if: env.BLACK
+    - name: Test with pytest
+      run: |
+        pytest -v tests
