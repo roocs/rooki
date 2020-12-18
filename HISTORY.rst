@@ -7,10 +7,10 @@ v0.3.0 (2020-12-18)
 New Features
 ^^^^^^^^^^^^
 
-* Configure output folder for metalinkt downloads (#41).
+* Configure output folder for metalink downloads (#41).
 * Access provenance document (#38).
 * Added provenance notebook (#39).
-* Added test notebook for with execution time measure (#40).
+* Added test notebook with execution time measure (#40).
 
 
 v0.2.3 (2020-11-05)
