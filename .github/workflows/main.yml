@@ -8,8 +8,19 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9]
-
+        include:
+          - python-version: 3.6
+            PEP8: false
+            BLACK: false
+          - python-version: 3.7
+            PEP8: false
+            BLACK: false
+          - python-version: 3.8
+            PEP8: true
+            BLACK: true
+          - python-version: 3.9
+            PEP8: false
+            BLACK: false
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
@@ -22,14 +33,11 @@ jobs:
         pip install flake8 black pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with flake8
-      run: |
-        # stop the build if there are Python syntax errors or undefined names
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      run: flake8 rooki tests
+      if: env.PEP
     - name: Check formatting with black
-      run: |
-        black --check --target-version py38 rooki tests
+      run: black --check --target-version py38 rooki tests
+      if: env.BLACK
     - name: Test with pytest
       run: |
         pytest -v tests
