@@ -1,6 +1,6 @@
 name: Run continuous integration tests
 
-on: [ push ]
+on: [ push, pull-request ]
 
 jobs:
   build:
