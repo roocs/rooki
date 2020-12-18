@@ -9,7 +9,7 @@ __author__ = "Carsten Ehbrecht"
 __contact__ = "ehbrecht@dkrz.de"
 __copyright__ = "Copyright 2018 United Kingdom Research and Innovation"
 __license__ = "BSD - see LICENSE file in top-level package directory"
-__version__ = "0.2.3"
+__version__ = "0.3.0"
 
 # One strategy for storing the overall version is to put it in the top-level
 # package's __init__ but Nb. __init__.py files are not needed to declare
