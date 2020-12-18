@@ -18,7 +18,9 @@ class Rooki(WPSClient):
             self._verify = config.get_config_value("service", "ssl_verify")
         else:
             self._verify = verify
-        self._output_dir = output_dir or config.get_config_value("service", "output_dir")
+        self._output_dir = output_dir or config.get_config_value(
+            "service", "output_dir"
+        )
         progress = self.mode == ASYNC
         super(Rooki, self).__init__(self._url, verify=self._verify, progress=progress)
         self._notebook = False

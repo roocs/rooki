@@ -87,6 +87,7 @@ class Subset(Operator):
 
 class Diff(Operator):
     """This is a dummy operator."""
+
     METHOD = "diff"
 
     def _tree(self, tree=defaultdict(dict)):
