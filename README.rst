@@ -5,7 +5,7 @@ rooki
     :target: https://rooki.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
-.. image:: https://github.com/roocs/rooki/workflows/.github/workflows/main.yml/badge.svg
+.. image:: https://github.com/roocs/rooki/workflows/build/badge.svg
     :target: https://github.com/roocs/rooki/actions
     :alt: Build Status
 
