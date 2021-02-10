@@ -22,10 +22,10 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with flake8
       run: flake8 rooki tests
-      if: matrix.python-version == 3.8
+      if: matrix.python-version == 3.6
     - name: Check formatting with black
-      run: black --check --target-version py38 rooki tests
-      if: matrix.python-version == 3.8
+      run: black --check --target-version py36 rooki tests
+      if: matrix.python-version == 3.6
     - name: Test with pytest
       run: |
         pytest -v tests
