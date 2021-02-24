@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export ROOK_URL="http://compute.mips.copernicus-climate.eu/wps"
+export ROOK_URL="http://rook1.cloud.dkrz.de/wps"
 export ROOK_MODE="async"
 
 exec "$@"

@@ -10,7 +10,7 @@ dependencies:
   - beautifulsoup4
   # open xarray results
   - netcdf4
-  - xarray>=0.15
+  - xarray>=0.16
   # tests
   #- pytest
   #- flake8
