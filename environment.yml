@@ -6,7 +6,7 @@ channels:
 dependencies:
   # - pip
   #- openssl
-  - birdy>=0.7.0
+  - birdy
   - beautifulsoup4
   # open xarray results
   - netcdf4
