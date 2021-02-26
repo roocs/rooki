@@ -19,8 +19,8 @@ def test_rooki_settings(rooki):
 @pytest.mark.online
 def test_rooki_subset(rooki):
     resp = rooki.subset(
-        collection="c3s-cmip6.CMIP.IPSL.IPSL-CM6A-LR.historical.r1i1p1f1.Amon.rlds.gr.v20180803",
-        time="1900-01-01/1900-12-30",
+        collection="c3s-cmip6.ScenarioMIP.INM.INM-CM5-0.ssp245.r1i1p1f1.Amon.rlds.gr1.v20190619",
+        time="2020-01-01/2020-12-31",
     )
     assert resp.ok is True
     assert resp.num_files == 1
@@ -33,7 +33,7 @@ def test_rooki_subset(rooki):
     out_file = resp.download()[0]
     assert out_file.startswith("/tmp/rooki/metalink_")
     assert out_file.endswith(
-        "rlds_Amon_IPSL-CM6A-LR_historical_r1i1p1f1_gr_19000116-19001216.nc"
+        "rlds_Amon_INM-CM5-0_ssp245_r1i1p1f1_gr1_20200116-20201216.nc"
     )
 
 
