@@ -2,6 +2,8 @@ import tempfile
 import requests
 from bs4 import BeautifulSoup
 
+import logging
+
 
 class Result(object):
     def __init__(self, response, output_dir=None, verify=False):
@@ -79,8 +81,14 @@ class Result(object):
         try:
             import metalink.download
 
+            if self.verify is False:
+                # TODO: should be handled in metalink
+                import ssl
+
+                ssl._create_default_https_context = ssl._create_unverified_context
             files = metalink.download.get(self.url, self.output_dir, segmented=False)
-        except Exception:
+        except Exception as e:
+            logging.error(f"Could not download files: {e}")
             files = []
         return files
 
