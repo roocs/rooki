@@ -48,7 +48,10 @@ class Rooki(WPSClient):
         return self._output_dir
 
     def _execute(self, pid, **kwargs):
-        resp = super(Rooki, self)._execute(pid, **kwargs)
+        try:
+            resp = super(Rooki, self)._execute(pid, **kwargs)
+        except Exception:
+            raise RuntimeError("execution failed")
         return Result(resp, output_dir=self.output_dir)
 
 
