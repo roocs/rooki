@@ -8,6 +8,7 @@ dependencies:
   #- openssl
   - birdy
   - beautifulsoup4
+  - pymetalink
   # open xarray results
   - netcdf4
   - xarray>=0.16
