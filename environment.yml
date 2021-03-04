@@ -12,6 +12,8 @@ dependencies:
   # open xarray results
   - netcdf4
   - xarray>=0.16
+  # esgf search
+  - esgf-pyclient
   # tests
   #- pytest
   #- flake8
