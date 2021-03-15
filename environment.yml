@@ -14,6 +14,11 @@ dependencies:
   - xarray>=0.16
   # esgf search
   - esgf-pyclient
+  # intake catalog
+  - intake
+  - pandas
+  - requests
+  - aiohttp
   # tests
   #- pytest
   #- flake8
