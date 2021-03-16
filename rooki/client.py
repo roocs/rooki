@@ -27,6 +27,10 @@ class Rooki(WPSClient):
         self.logger = logging.getLogger("rooki")
         self.logger.addHandler(logging.NullHandler())
 
+    def cancel(self):
+        # https://github.com/roocs/rook/issues/143
+        self.logger.warn("cancel was called but is not available.")
+
     @property
     def url(self):
         return self._url
