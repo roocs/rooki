@@ -1,6 +1,24 @@
 Version History
 ===============
 
+v0.3.2 (2021-03-21)
+-------------------
+
+Changes
+^^^^^^^
+
+Notebooks:
+
+* Added tests (#55, #58, #59)
+* Added c4i demo (#54).
+* Added intake example (#56).
+
+Bug Fixes
+^^^^^^^^^
+
+* Quick fix for missing cancel function (#57).
+* Allow metalink download from unverified https end-point (#52).
+
 v0.3.1 (2021-02-24)
 -------------------
 
