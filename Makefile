@@ -54,12 +54,15 @@ lint: ## check style with flake8
 	flake8 rooki tests
 
 test: ## run tests quickly with the default Python
-	py.test
+	pytest -v -m "not slow and not online" tests/
 
 test-nb:  ## py.test for notebooks
 	pytest --nbval $(CURDIR)/notebooks/monitor --sanitize-with $(CURDIR)/notebooks/monitor/output_sanitize.cfg
 
-test-all: ## run tests on every Python version with tox
+test-all:
+	pytest -v tests/
+
+test-tox: ## run tests on every Python version with tox
 	tox
 
 coverage: ## check code coverage quickly with the default Python

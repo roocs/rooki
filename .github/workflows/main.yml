@@ -27,9 +27,12 @@ jobs:
     - name: Check formatting with black
       run: black --check --target-version py36 rooki tests
       if: matrix.python-version == 3.6
+    - name: Check monitor notebooks
+      run: make test-nb
+      if: matrix.python-version == 3.6
     - name: Test with pytest
       run: |
-        pytest -v tests
+        make test
     # - name: Test monitor notebooks with pytest
     #   run: |
     #     pytest -v --nbval notebooks/monitor
