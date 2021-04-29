@@ -9,6 +9,8 @@ dependencies:
   - birdy
   - beautifulsoup4
   - pymetalink
+  - owslib
+  - pyproj>=3.0.1
   # open xarray results
   - netcdf4
   - xarray>=0.16
