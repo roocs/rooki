@@ -19,6 +19,9 @@ dependencies:
   - pandas
   - requests
   - aiohttp
+  # vis
+  - hvplot
+  - bokeh
   # tests
   #- pytest
   #- flake8
