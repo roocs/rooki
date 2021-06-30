@@ -11,7 +11,15 @@ import logging
 
 
 class Rooki(WPSClient):
-    def __init__(self, url=None, mode=None, verify=None, output_dir=None):
+    def __init__(
+        self,
+        url=None,
+        mode=None,
+        verify=None,
+        output_dir=None,
+        headers=None,
+        lineage=True,
+    ):
         self._url = url or config.get_config_value("service", "url")
         self._mode = mode or config.get_config_value("service", "mode")
         if verify is None:
@@ -22,7 +30,18 @@ class Rooki(WPSClient):
             "service", "output_dir"
         )
         progress = self.mode == ASYNC
-        super(Rooki, self).__init__(self._url, verify=self._verify, progress=progress)
+        if "ACCESS_TOKEN" in os.environ:
+            access_token = os.environ["ACCESS_TOKEN"]
+            if headers is None:
+                headers = {}
+            headers["Authorization"] = f"Bearer {access_token}"
+        super(Rooki, self).__init__(
+            self._url,
+            verify=self._verify,
+            progress=progress,
+            headers=headers,
+            lineage=lineage,
+        )
         self._notebook = False
         self.logger = logging.getLogger("rooki")
         self.logger.addHandler(logging.NullHandler())
