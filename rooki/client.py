@@ -20,14 +20,20 @@ class Rooki(WPSClient):
         headers=None,
         lineage=True,
     ):
-        self._url = url or config.get_config_value("service", "url")
-        self._mode = mode or config.get_config_value("service", "mode")
+        self._url = url or os.environ.get(
+            "ROOK_URL", config.get_config_value("service", "url")
+        )
+        self._mode = mode or os.environ.get(
+            "ROOK_MODE", config.get_config_value("service", "mode")
+        )
         if verify is None:
-            self._verify = config.get_config_value("service", "ssl_verify")
+            self._verify = os.environ.get(
+                "ROOK_SSL_VERIFY", config.get_config_value("service", "ssl_verify")
+            )
         else:
             self._verify = verify
-        self._output_dir = output_dir or config.get_config_value(
-            "service", "output_dir"
+        self._output_dir = output_dir or os.environ.get(
+            "ROOKI_OUTPUT_DIR", config.get_config_value("service", "output_dir")
         )
         progress = self.mode == ASYNC
         if "ACCESS_TOKEN" in os.environ:
@@ -76,6 +82,3 @@ class Rooki(WPSClient):
         except Exception:
             raise RuntimeError("execution failed")
         return Result(resp, output_dir=self.output_dir)
-
-
-rooki = Rooki()
