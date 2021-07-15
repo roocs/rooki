@@ -3,7 +3,14 @@
 import json
 from collections import defaultdict
 
-from .client import rooki
+from .client import Rooki
+
+rooki = Rooki()
+
+
+def reinit():
+    global rooki
+    rooki = Rooki()
 
 
 class Operator:
@@ -30,6 +37,7 @@ class Operator:
         return json.dumps(tree)
 
     def orchestrate(self):
+        reinit()
         return rooki.orchestrate(workflow=self._serialise())
 
     @property
@@ -63,6 +71,7 @@ class Input:
         return json.dumps(tree)
 
     def orchestrate(self):
+        reinit()
         return rooki.orchestrate(workflow=self._serialise())
 
     def _tree(self, tree=defaultdict(dict)):
