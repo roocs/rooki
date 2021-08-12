@@ -1,6 +1,22 @@
 Version History
 ===============
 
+v0.3.3 (2021-08-12)
+-------------------
+
+New Features
+^^^^^^^^^^^^
+
+* Use reinit internally to update config from environment variables ... e.g. update access token (#81).
+* Added wps lineage option (#80).
+* Using environment variable ACCESS_TOKEN for OAuth access token (#80).
+
+Changes
+^^^^^^^
+
+* Updated notebooks for c4i and dashboard demo.
+
+
 v0.3.2 (2021-03-21)
 -------------------
 
