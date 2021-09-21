@@ -19,6 +19,8 @@ dependencies:
   # intake catalog
   - intake
   - pandas
+  - dask
+  - fsspec
   - requests
   - aiohttp
   # vis

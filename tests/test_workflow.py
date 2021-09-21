@@ -29,6 +29,7 @@ WF_EXAMPLE = {
 
 
 @pytest.mark.online
+@pytest.mark.xfail(reason="online wps not always available")
 def test_workflow_subset_chain():
     wf = ops.Subset(
         ops.Subset(
