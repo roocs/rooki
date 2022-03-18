@@ -86,8 +86,12 @@ class Input:
         return f"inputs/{self.variable}"
 
 
-class Average(Operator):
-    METHOD = "average"
+class AverageByTime(Operator):
+    METHOD = "average_time"
+
+
+class AverageByDim(Operator):
+    METHOD = "average_dim"
 
 
 class Subset(Operator):
