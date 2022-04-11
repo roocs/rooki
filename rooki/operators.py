@@ -86,6 +86,10 @@ class Input:
         return f"inputs/{self.variable}"
 
 
+class Average(Operator):
+    METHOD = "average"
+
+
 class AverageByTime(Operator):
     METHOD = "average_time"
 
