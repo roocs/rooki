@@ -1,6 +1,23 @@
 Version History
 ===============
 
+v0.4.0 (2022-04-14)
+-------------------
+
+New Features
+^^^^^^^^^^^^
+
+* Added operator for `AverageByTime` (#93, #96).
+
+Changes
+^^^^^^^
+
+* Added notebooks for CMIP6 decadal (#89, #91).
+* Added notebooks for "subset by point" (#87).
+* Updated notebooks for c4i demo (#86, #94, #95).
+* Updated notebooks for "average" operator (#93, #96).
+
+
 v0.3.3 (2021-08-12)
 -------------------
 
