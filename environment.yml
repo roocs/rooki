@@ -2,7 +2,6 @@
 name: rooki
 channels:
   - conda-forge
-  - defaults
 dependencies:
   - pip
   #- openssl
@@ -14,6 +13,9 @@ dependencies:
   # open xarray results
   - netcdf4
   - xarray>=0.16
+  # cdo
+  - python-cdo
+  - cdo
   # esgf search
   - esgf-pyclient
   # intake catalog
