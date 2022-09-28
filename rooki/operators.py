@@ -86,6 +86,10 @@ class Input:
         return f"inputs/{self.variable}"
 
 
+class Concat(Operator):
+    METHOD = "concat"
+
+
 class Average(Operator):
     METHOD = "average"
 
