@@ -1,6 +1,19 @@
 Version History
 ===============
 
+v0.5.0 (2022-09-28)
+-------------------
+
+New Features
+^^^^^^^^^^^^
+
+* Added operator and notebook for `Concat` demo (#104).
+
+Changes
+^^^^^^^
+
+* Updated notebooks (subset, cmip6-decadal, intake).
+
 v0.4.0 (2022-04-14)
 -------------------
 
