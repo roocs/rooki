@@ -5,7 +5,7 @@ channels:
 dependencies:
   - pip
   #- openssl
-  - birdy
+  - birdy>=0.8.2
   - beautifulsoup4
   - pymetalink
   - owslib

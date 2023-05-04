@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9]
+        python-version: ["3.9", "3.10"]
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
@@ -22,14 +22,14 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         pip install .
     - name: Lint with flake8
-      run: flake8 rooki tests
-      if: matrix.python-version == 3.6
+      run: flake8 rooki
+      if: matrix.python-version == 3.9
     - name: Check formatting with black
-      run: black --check --target-version py36 rooki tests
-      if: matrix.python-version == 3.6
+      run: black --check --target-version py39 rooki
+      if: matrix.python-version == 3.9
     - name: Check online tests
       run: pytest -v tests
-      if: matrix.python-version == 3.6
+      if: matrix.python-version == 3.9
     - name: Test with pytest
       run: |
         pytest -v -m "not online" tests

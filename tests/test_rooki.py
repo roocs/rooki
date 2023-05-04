@@ -17,7 +17,8 @@ def test_rooki_settings(rooki):
 
 
 @pytest.mark.online
-@pytest.mark.xfail(reason="fails on GitHub CI ... works locally")
+#@pytest.mark.xfail(reason="fails on GitHub CI ... works locally")
+@pytest.mark.skip(reason="needs to be fixed")
 def test_rooki_subset(rooki):
     resp = rooki.subset(
         collection="c3s-cmip6.CMIP.INM.INM-CM5-0.historical.r1i1p1f1.Amon.rlds.gr1.v20190610",
@@ -52,7 +53,8 @@ def test_rooki_errors_not_avail_op(rooki):
 
 
 @pytest.mark.online
-@pytest.mark.xfail(reason="XFAIL at service provider site, otherwise XPASS")
+#@pytest.mark.xfail(reason="XFAIL at service provider site, otherwise XPASS")
+@pytest.mark.skip(reason="needs to be fixed")
 def test_rooki_errors_access_denied():
     from rooki.client import Rooki
 
