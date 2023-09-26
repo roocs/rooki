@@ -98,6 +98,10 @@ class AverageByTime(Operator):
     METHOD = "average_time"
 
 
+class WeightedAverage(Operator):
+    METHOD = "weighted_average"
+
+
 class Subset(Operator):
     METHOD = "subset"
 
