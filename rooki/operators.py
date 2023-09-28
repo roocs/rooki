@@ -106,6 +106,10 @@ class Subset(Operator):
     METHOD = "subset"
 
 
+class Regrid(Operator):
+    METHOD = "regrid"
+
+
 class Diff(Operator):
     """This is a dummy operator."""
 
