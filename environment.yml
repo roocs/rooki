@@ -13,6 +13,7 @@ dependencies:
   # open xarray results
   - netcdf4
   - xarray>=0.16
+  - cf_xarray
   # cdo
   - python-cdo
   - cdo
