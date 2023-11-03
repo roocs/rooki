@@ -12,7 +12,6 @@ the rook_ WPS.
 
 A Jupyter Notebook is provided to demonstrate the basic use of rooki.
 
-Full documentation_ is on ReadTheDocs.
 
 Online Demo
 -----------
