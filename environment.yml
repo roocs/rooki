@@ -14,6 +14,10 @@ dependencies:
   - netcdf4
   - xarray>=0.16
   - cf_xarray
+  # tests
+  #- pytest
+  #- flake8
+  ## used for notebooks on binder
   # cdo
   - python-cdo
   - cdo
@@ -29,8 +33,3 @@ dependencies:
   # vis
   - hvplot
   - bokeh
-  # tests
-  #- pytest
-  #- flake8
-  - pip:
-    - geoip2nation

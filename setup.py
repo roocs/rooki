@@ -9,7 +9,7 @@ __author__ = "Carsten Ehbrecht"
 __contact__ = "ehbrecht@dkrz.de"
 __copyright__ = "Copyright 2018 United Kingdom Research and Innovation"
 __license__ = "BSD - see LICENSE file in top-level package directory"
-__version__ = "0.5.0"
+__version__ = "0.6.0"
 
 # One strategy for storing the overall version is to put it in the top-level
 # package's __init__ but Nb. __init__.py files are not needed to declare
@@ -53,9 +53,9 @@ setup(
         "Operating System :: POSIX :: Linux",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
         "Topic :: Security",
         "Topic :: Internet",
         "Topic :: Scientific/Engineering",
@@ -67,7 +67,7 @@ setup(
     license=__license__,
     # This qualifier can be used to selectively exclude Python versions -
     # in this case early Python 2 and 3 releases
-    python_requires=">=3.6.0",
+    python_requires=">=3.9.0",
     entry_points={
         "console_scripts": [
             "rooki=rooki.cli:main",
