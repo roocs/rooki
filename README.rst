@@ -1,17 +1,7 @@
 rooki
 =====
 
-.. image:: https://readthedocs.org/projects/rooki/badge/?version=latest
-    :target: https://rooki.readthedocs.io/en/latest/?badge=latest
-    :alt: Documentation Status
-
-.. image:: https://github.com/roocs/rooki/workflows/build/badge.svg
-    :target: https://github.com/roocs/rooki/actions
-    :alt: Build Status
-
-.. image:: https://img.shields.io/github/license/roocs/rooki.svg
-    :target: https://github.com/roocs/rooki/blob/master/LICENSE
-    :alt: GitHub license
+|pypi| |conda| |build| |black|
 
 
 Rooki is a client for roocs_ climate data operations service (rook_).
@@ -50,3 +40,19 @@ This package was created with Cookiecutter_ and the `cookiecutter-pypackage`_ pr
 .. _roocs: https://github.com/roocs
 .. _rook: https://github.com/roocs/rook
 .. _documentation: https://rooki.readthedocs.io/en/latest/
+
+.. |pypi| image:: https://img.shields.io/pypi/v/rooki.svg
+   :target: https://pypi.python.org/pypi/rooki
+   :alt: PyPI
+
+.. |conda| image:: https://img.shields.io/conda/vn/conda-forge/rooki.svg
+   :target: https://anaconda.org/conda-forge/rooki
+   :alt: Conda Forge
+
+.. |build| image:: https://github.com/roocs/rooki/workflows/build/badge.svg
+   :target: https://github.com/roocs/rooki/actions
+   :alt: Build Status
+
+.. |black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
+   :target: https://github.com/python/black
+   :alt: Black
