@@ -94,7 +94,7 @@ class Result(object):
 
     def datasets(self):
         try:
-            import cf_xarray as cfxr
+            import cf_xarray as cfxr  # noqa
             import xarray as xr
 
             xr.set_options(keep_attrs=True)
