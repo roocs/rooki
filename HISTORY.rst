@@ -1,6 +1,24 @@
 Version History
 ===============
 
+v0.6.0 (2023-11-03)
+-------------------
+
+New Features
+^^^^^^^^^^^^
+
+* Added operator and notebook for `Regrid` (#133).
+* Added operator and notebook for `WeightedAverage` (#132).
+
+Changes
+^^^^^^^
+
+* Support only Python >= 3.9
+* Added cf-xarray dependency (#143)
+* Updated to birdy >= 0.8.2 (#124)
+* Added notebook for atlas
+* Updated notebooks (subset, cmip6-decadal, intake).
+
 v0.5.0 (2022-09-28)
 -------------------
 
