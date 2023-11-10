@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 
 __author__ = "Carsten Ehbrecht"
 __contact__ = "ehbrecht@dkrz.de"
-__copyright__ = "Copyright 2018 United Kingdom Research and Innovation"
+__copyright__ = "Copyright 2023 United Kingdom Research and Innovation"
 __license__ = "BSD - see LICENSE file in top-level package directory"
 __version__ = "0.6.0"
 
@@ -29,10 +29,6 @@ test_requirements = [
     "pytest",
 ]
 
-setup_requirements = [
-    "pytest-runner",
-]
-
 
 setup(
     author=__author__,
@@ -45,7 +41,6 @@ setup(
         "Environment :: Web Environment",
         "Intended Audience :: End Users/Desktop",
         "Intended Audience :: Developers",
-        "Intended Audience :: System Administrators",
         "Intended Audience :: Science/Research",
         "License :: OSI Approved :: BSD License",
         "Natural Language :: English",
@@ -60,22 +55,14 @@ setup(
         "Topic :: Internet",
         "Topic :: Scientific/Engineering",
         "Topic :: System :: Distributed Computing",
-        "Topic :: System :: Systems Administration :: Authentication/Directory",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
     description="A client for roocs climate data operations service.",
     license=__license__,
-    # This qualifier can be used to selectively exclude Python versions -
-    # in this case early Python 2 and 3 releases
+    # This qualifier can be used to selectively exclude Python versions
     python_requires=">=3.9.0",
-    entry_points={
-        "console_scripts": [
-            "rooki=rooki.cli:main",
-        ],
-    },
     install_requires=[
         requirements,
-        # "pymetalink @ git+https://github.com/metalink-dev/pymetalink.git",
     ],
     long_description=_long_description,
     long_description_content_type="text/x-rst",
@@ -83,7 +70,6 @@ setup(
     keywords="rooki",
     name="rooki",
     packages=find_packages(include=["rooki"]),
-    setup_requires=setup_requirements,
     test_suite="tests",
     tests_require=test_requirements,
     url="https://github.com/roocs/rooki",
