@@ -1,6 +1,15 @@
 Version History
 ===============
 
+v0.6.1 (2023-11-10)
+-------------------
+
+Changes
+^^^^^^^
+
+* Clean up setup (#146).
+* Updated notebooks for weighted average and cmip6-decadal (#148).
+
 v0.6.0 (2023-11-03)
 -------------------
 
