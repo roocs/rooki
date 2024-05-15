@@ -82,3 +82,30 @@ class Rooki(WPSClient):
         except Exception:
             raise RuntimeError("execution failed")
         return Result(resp, output_dir=self.output_dir)
+
+    def _console_monitor(self, execution, sleep=3):
+        """
+        TODO: overwrites birdy method to avoid conflict with usage of signal and dask.
+        """
+        # import signal
+
+        # # Intercept CTRL-C
+        # def sigint_handler(signum, frame):
+        #     self.cancel()
+
+        # signal.signal(signal.SIGINT, sigint_handler)
+
+        while not execution.isComplete():
+            execution.checkStatus(sleepSecs=sleep)
+            self.logger.info(
+                "{} [{}/100] - {} ".format(
+                    execution.process.identifier,
+                    execution.percentCompleted,
+                    execution.statusMessage[:50],
+                )
+            )
+
+        if execution.isSucceded():
+            self.logger.info(f"{execution.process.identifier} done.")
+        else:
+            self.logger.info(f"{execution.process.identifier} failed.")
