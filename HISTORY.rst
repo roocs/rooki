@@ -1,6 +1,15 @@
 Version History
 ===============
 
+v0.6.2 (2024-05-15)
+-------------------
+
+Changes
+^^^^^^^
+
+* Fix usage of signal in birdy (#163).
+* Added notebooks for atlas.
+
 v0.6.1 (2023-11-10)
 -------------------
 
