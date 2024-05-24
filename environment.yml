@@ -24,7 +24,7 @@ dependencies:
   # esgf search
   - esgf-pyclient
   # intake catalog
-  - intake
+  - intake>=0.7.0,<2.0.0
   - pandas
   - dask
   - fsspec
