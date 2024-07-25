@@ -1,6 +1,15 @@
 Version History
 ===============
 
+v0.6.3 (2024-07-25)
+-------------------
+
+Changes
+^^^^^^^
+
+* Pin intake<2.0 (#165).
+* Update notebooks for regrid operator (#166).
+
 v0.6.2 (2024-05-15)
 -------------------
 
