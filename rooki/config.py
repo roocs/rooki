@@ -51,7 +51,8 @@ def load_configuration(cfgfiles=None):
     global CONFIG
 
     LOGGER.info("loading configuration")
-    CONFIG = configparser.ConfigParser(os.environ)
+    # Allow duplicate environment keys (last one wins)
+    CONFIG = configparser.ConfigParser(strict=False, defaults=os.environ)
 
     LOGGER.debug("setting default values")
     CONFIG.add_section("service")
