@@ -1,6 +1,15 @@
 Version History
 ===============
 
+v0.6.4 (2025-08-26)
+-------------------
+
+Changes
+^^^^^^^
+
+* Fix config. Allow duplicate keys (#185).
+* Updated notebooks for CMIP6 and atlas v2.
+
 v0.6.3 (2024-07-25)
 -------------------
 
