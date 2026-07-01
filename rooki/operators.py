@@ -18,7 +18,8 @@ class Operator:
         self.args = args
         self.kwargs = kwargs
 
-    def _tree(self, tree=defaultdict(dict)):
+    def _tree(self, tree=None):
+        tree = _init_tree(tree)
         # args = [arg._tree(tree) for arg in self.args]
         [arg._tree(tree) for arg in self.args]
         tree["steps"][self.method_key] = {
@@ -74,7 +75,8 @@ class Input:
         reinit()
         return rooki.orchestrate(workflow=self._serialise())
 
-    def _tree(self, tree=defaultdict(dict)):
+    def _tree(self, tree=None):
+        tree = _init_tree(tree)
         tree["inputs"][self.variable] = self.dataset
         return tree
 
@@ -115,7 +117,8 @@ class Diff(Operator):
 
     METHOD = "diff"
 
-    def _tree(self, tree=defaultdict(dict)):
+    def _tree(self, tree=None):
+        tree = _init_tree(tree)
         # args = [arg._tree(tree) for arg in self.args]
         [arg._tree(tree) for arg in self.args]
         tree["steps"][self.method_key] = {
@@ -140,3 +143,7 @@ def _unpack_if_single(list):
     except ValueError:
         item = list
     return item
+
+
+def _init_tree(tree):
+    return tree if tree is not None else defaultdict(dict)
