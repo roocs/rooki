@@ -93,3 +93,55 @@ def test_workflow_compare_serialize():
     wf_b = ops.Subset(wf_b, time="1860-01-01/1920-12-30")
     wf_b = ops.Subset(wf_b, time="1880-01-01/1900-12-30")
     assert wf_a._serialise() == wf_b._serialise()
+
+
+def test_input_serialize_does_not_reuse_previous_tree():
+    wf_a = ops.Input("huss", ["c3s-cordex.huss"])
+    wf_b = ops.Input("tas", ["c3s-cordex.tas"])
+
+    assert json.loads(wf_a._serialise())["inputs"] == {"huss": ["c3s-cordex.huss"]}
+    assert json.loads(wf_b._serialise())["inputs"] == {"tas": ["c3s-cordex.tas"]}
+
+
+def test_workflow_serialize_does_not_reuse_previous_tree():
+    wf_a = ops.Subset(
+        ops.Input("huss", ["c3s-cordex.huss"]),
+        time="2006/2006",
+        time_components="month:jan|year:2006",
+    )
+    wf_b = ops.Subset(
+        ops.Input("tas", ["c3s-cordex.tas"]),
+        time="2007/2007",
+        time_components="month:feb|year:2007",
+    )
+
+    assert json.loads(wf_a._serialise()) == {
+        "inputs": {"huss": ["c3s-cordex.huss"]},
+        "steps": {
+            "subset_huss_1": {
+                "run": "subset",
+                "in": {
+                    "collection": "inputs/huss",
+                    "time": "2006/2006",
+                    "time_components": "month:jan|year:2006",
+                },
+            }
+        },
+        "outputs": {"output": "subset_huss_1/output"},
+        "doc": "workflow",
+    }
+    assert json.loads(wf_b._serialise()) == {
+        "inputs": {"tas": ["c3s-cordex.tas"]},
+        "steps": {
+            "subset_tas_1": {
+                "run": "subset",
+                "in": {
+                    "collection": "inputs/tas",
+                    "time": "2007/2007",
+                    "time_components": "month:feb|year:2007",
+                },
+            }
+        },
+        "outputs": {"output": "subset_tas_1/output"},
+        "doc": "workflow",
+    }
