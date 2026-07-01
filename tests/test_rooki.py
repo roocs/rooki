@@ -17,7 +17,7 @@ def test_rooki_settings(rooki):
 
 
 @pytest.mark.online
-#@pytest.mark.xfail(reason="fails on GitHub CI ... works locally")
+# @pytest.mark.xfail(reason="fails on GitHub CI ... works locally")
 @pytest.mark.skip(reason="needs to be fixed")
 def test_rooki_subset(rooki):
     resp = rooki.subset(
@@ -53,7 +53,7 @@ def test_rooki_errors_not_avail_op(rooki):
 
 
 @pytest.mark.online
-#@pytest.mark.xfail(reason="XFAIL at service provider site, otherwise XPASS")
+# @pytest.mark.xfail(reason="XFAIL at service provider site, otherwise XPASS")
 @pytest.mark.skip(reason="needs to be fixed")
 def test_rooki_errors_access_denied():
     from rooki.client import Rooki
