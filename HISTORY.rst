@@ -1,6 +1,14 @@
 Version History
 ===============
 
+v0.6.5 (2026-07-01)
+-------------------
+
+Bug Fixes
+^^^^^^^^^
+
+* Fix workflow serialization so independent workflows do not reuse inputs or steps from previous serializations (#198).
+
 v0.6.4 (2025-08-26)
 -------------------
 
