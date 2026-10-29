@@ -48,7 +48,6 @@ setup(
         "Operating System :: POSIX :: Linux",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
         "Topic :: Security",
@@ -60,7 +59,7 @@ setup(
     description="A client for roocs climate data operations service.",
     license=__license__,
     # This qualifier can be used to selectively exclude Python versions
-    python_requires=">=3.9.0",
+    python_requires=">=3.10.0",
     install_requires=[
         requirements,
     ],
